@@ -23,6 +23,7 @@ import * as firebase from 'firebase';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {FormsModule} from '@angular/forms';
 import {ProductService} from './product.service';
+import {CustomFormsModule} from 'ng2-validation';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import {ProductService} from './product.service';
   ],
   imports: [
     BrowserModule,
+    CustomFormsModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
@@ -56,8 +58,9 @@ import {ProductService} from './product.service';
       {path: 'order-success', component: OrderSuccessComponent},
       {path: 'my/orders', component: MyOrdersComponent},
       {path: 'login', component: LoginComponent},
-      {path: 'admin/products', component: AdminProductsComponent},
       {path: 'admin/products/new', component: ProductFormComponent},
+      {path: 'admin/products/:id', component: ProductFormComponent},
+      {path: 'admin/products', component: AdminProductsComponent},
       {path: 'admin/orders', component: AdminOrdersComponent}
     ]),
     NgbDropdownModule
